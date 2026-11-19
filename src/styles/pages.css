@@ -1,0 +1,127 @@
+/* ===== Title bar on inner pages ===== */
+.page-title { padding: 18px 0 22px; background: var(--cream); }
+.page-title .container { display: flex; align-items: center; justify-content: space-between; }
+.page-title h1 { font-size: 15px; }
+.breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 12px; }
+.breadcrumb a { color: var(--navy); }
+
+/* ===== About page ===== */
+.about-intro { padding: 90px 0 0; }
+.intro-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 60px; }
+.intro-grid p { margin-bottom: 26px; }
+.check-list.dark-checks svg { width: 24px; height: 24px; padding: 5px; background: var(--navy); }
+
+.tiles { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 70px; margin-bottom: -120px; }
+.tile { position: relative; height: 340px; overflow: hidden; }
+.tile img { width: 100%; height: 100%; object-fit: cover; }
+/* the yellow layer on top of the photo. On hover it fades away. */
+.tile::after { content: ''; position: absolute; inset: 0; background: rgba(244, 192, 59, 0.8); transition: background 0.4s; }
+.tile:hover::after { background: rgba(244, 192, 59, 0); }
+.tile-name,
+.tile-more { position: absolute; inset: 0; z-index: 2; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 700; transition: opacity 0.4s; }
+.tile-name { color: var(--navy); }
+.tile-more { color: #fff; opacity: 0; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); }
+.tile:hover .tile-name { opacity: 0; }
+.tile:hover .tile-more { opacity: 1; }
+
+.numbers { padding: 190px 0 100px; background: var(--navy); }
+.number-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.number-card { padding-top: 30px; background: #fff; text-align: center; }
+.number-card strong { display: block; font-size: 52px; font-weight: 300; line-height: 1.2; color: var(--navy); }
+.number-card span { display: block; margin-top: 18px; padding: 10px; background: var(--yellow); color: var(--navy); font-weight: 600; }
+
+.skills-section { display: grid; grid-template-columns: 47% 1fr; align-items: center; padding: 100px 0; }
+.skills-photo { position: relative; z-index: 0; margin-bottom: 50px; }
+.skills-photo::before { content: ''; position: absolute; z-index: -1; left: 0; bottom: -50px; width: 85%; height: 60%; background: var(--yellow); }
+.skills-photo img { width: 100%; height: 420px; object-fit: cover; box-shadow: var(--shadow); }
+/* The play icon is already part of the photo. This invisible button sits on top of it. */
+.photo-play { position: absolute; left: 50%; top: 32%; width: 90px; height: 90px; transform: translate(-50%, -50%); border-radius: 50%; opacity: 0; }
+.photo-play:focus-visible { opacity: 1; outline: 3px solid var(--navy); color: var(--navy); }
+.skills-content { max-width: 700px; padding: 0 max(20px, calc((100vw - 1240px) / 2)) 0 5%; }
+.skills-content > p { margin-bottom: 30px; }
+.skill { margin-bottom: 14px; background: #f1f2f4; }
+.skill-bar { display: flex; align-items: center; justify-content: space-between; width: 0; height: 36px; padding-left: 12px; overflow: hidden; background: var(--navy); color: #fff; font-weight: 500; font-size: 13px; white-space: nowrap; transition: width 1.3s 0.3s; }
+.skills-content.show .skill-bar { width: var(--percent); } /* bars grow once you scroll to them */
+.skill-bar b { display: flex; align-items: center; height: 100%; padding: 0 10px; background: var(--yellow); color: var(--navy); }
+
+/* ===== Services page ===== */
+.services-page { padding: 90px 0 0; }
+.big-service-cards { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: -90px; }
+.big-service { position: relative; margin-top: 36px; padding: 70px 24px 30px; background: #fff; border: 2px solid #d6dae0; text-align: center; transition: 0.4s; }
+.icon-square { position: absolute; top: -36px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; width: 72px; height: 72px; background: var(--navy); color: #fff; font-size: 30px; transition: 0.4s; }
+.big-service h3 { margin-bottom: 12px; transition: color 0.4s; }
+.big-service p { margin-bottom: 26px; font-size: 13.5px; transition: color 0.4s; }
+/* On hover the whole card turns navy and the icon turns yellow */
+.big-service:hover { background: var(--navy); border-color: var(--navy); }
+.big-service:hover h3 { color: var(--yellow); }
+.big-service:hover p { color: #c3cad6; }
+.big-service:hover .icon-square { background: var(--yellow); color: var(--navy); }
+.big-service:hover .btn { background: var(--yellow); border-color: var(--yellow); color: var(--navy); }
+
+.tips { padding: 170px 0 100px; background: var(--navy); }
+.tips-top { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 50px; }
+.tips-top h2 { margin-top: 8px; font-size: 38px; color: #fff; }
+.tips-top p { color: #b7bfcc; }
+.tips .small-label { margin: 0; }
+
+/* ===== FAQ page ===== */
+.faq-page { padding-bottom: 100px; }
+.faq-top { display: grid; grid-template-columns: 1.3fr 1fr; gap: 60px; align-items: center; padding: 80px 0 60px; }
+.faq-top h2 { margin: 8px 0 16px; font-size: 38px; }
+.faq-top img { width: 100%; height: 300px; object-fit: cover; box-shadow: var(--shadow); }
+.faq-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 60px; align-items: start; }
+.faq-heading { display: flex; align-items: center; gap: 22px; margin-bottom: 26px; }
+.faq-heading h3 { font-size: 20px; }
+.faq-heading p { font-size: 13px; }
+.diamond { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: var(--yellow); color: var(--navy); transform: rotate(45deg); }
+.diamond svg { transform: rotate(-45deg); }
+
+.faq-item { margin-bottom: 8px; border: 1px solid #e6e8ec; }
+.faq-question { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 16px 20px; text-align: left; font-size: 14px; font-weight: 500; color: var(--navy); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s; }
+.faq-answer p { padding: 0 20px 20px; font-size: 13.5px; }
+/* the open question turns navy */
+.faq-item.open .faq-question { background: var(--navy); color: #fff; }
+.faq-item.open .faq-answer { max-height: 220px; background: var(--navy); color: #c3cad6; }
+
+.still-banner { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-top: 80px; padding: 34px 40px; background: var(--yellow); }
+.still-banner h3 { font-size: 22px; }
+.still-banner p { color: var(--navy); }
+
+/* ===== Contact page ===== */
+.contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 70px; align-items: start; padding: 80px 0; }
+.contact-item { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; color: var(--navy); }
+.icon-square.yellow { position: static; transform: none; flex: none; width: 46px; height: 46px; background: var(--yellow); color: var(--navy); font-size: 18px; }
+/* The map is made grey with a CSS filter so it looks like the original */
+.map { display: block; width: 100%; height: 420px; border: 0; filter: grayscale(1) contrast(0.9); }
+
+/* ===== Placeholder pages ===== */
+.placeholder-page { padding: 120px 0; text-align: center; }
+.placeholder-page h2 { margin-bottom: 12px; font-size: 38px; }
+.placeholder-page p { margin-bottom: 30px; }
+
+/* ===== Tablet and mobile ===== */
+@media (max-width: 1024px) {
+  .intro-grid,
+  .faq-top,
+  .faq-grid,
+  .contact-grid,
+  .tips-top { grid-template-columns: 1fr; gap: 40px; }
+  .tiles { margin-bottom: -80px; }
+  .numbers { padding-top: 150px; }
+  .number-cards { grid-template-columns: repeat(2, 1fr); }
+  .skills-section { grid-template-columns: 1fr; gap: 70px; }
+  .skills-photo { width: 90%; }
+  .skills-content { padding: 0 20px; margin: 0 auto; }
+  .big-service-cards { grid-template-columns: repeat(2, 1fr); gap: 50px 12px; margin-bottom: -60px; }
+  .tips { padding-top: 140px; }
+}
+
+@media (max-width: 768px) {
+  .tiles { grid-template-columns: 1fr; }
+  .tile { height: 240px; }
+  .number-cards { grid-template-columns: 1fr; }
+  .big-service-cards { grid-template-columns: 1fr; }
+  .still-banner { flex-direction: column; align-items: flex-start; padding: 28px 22px; }
+  .intro-grid { gap: 20px; }
+}
