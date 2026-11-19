@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import SectionTitle from '../components/SectionTitle';
-import icons from '../components/icons';
 import { homeServices } from '../data';
 
 function ServiceCards() {
@@ -13,17 +12,16 @@ function ServiceCards() {
       {/* The grey strip starts halfway down the cards, so the cards sit on a special background */}
       <div className="services-area">
         <div className="container service-cards">
-          {homeServices.map((service) => {
-            const Icon = icons[service.icon];
-            return (
-              <div className="service-card fade" key={service.title}>
-                <Icon className="service-icon" />
-                <h3>{service.title}</h3>
-                <p>{service.text}</p>
-                <Link to="/services" className="btn btn-navy">Read More</Link>
+          {homeServices.map((service) => (
+            <div className="service-card fade" key={service.title}>
+              <div className="service-icon-wrap">
+                <img src={service.image} alt={service.title} className="service-img-icon" />
               </div>
-            );
-          })}
+              <h3>{service.title}</h3>
+              <p>{service.text}</p>
+              <Link to="/services" className="btn btn-service">Read More</Link>
+            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -1,23 +1,290 @@
 /* ===================================================
-   ABOUT PAGE STYLES
+   ABOUT SECTION & ABOUT PAGE STYLES (ULTRA LARGE HIGH-IMPACT SCALE)
    =================================================== */
 
-.about-intro {
-  padding: 90px 0 0;
+.about-section {
+  position: relative;
+  width: 100%;
+  background: #ffffff;
+  padding: 60px 0 150px 0;
+  overflow: hidden;
 }
-.intro-grid {
+
+/* On home page, add top padding to clear feature cards overhang */
+.about-section.home-about {
+  padding-top: 280px;
+}
+
+.about-inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 1680px;
+  margin-left: 0;
+  margin-right: auto;
+  padding: 0 40px 0 0;
+  gap: 90px;
+}
+
+/* Left Column: Photo with yellow frame */
+.about-image-col {
+  position: relative;
+  flex: 0 0 820px;
+  width: 820px;
+  padding-top: 100px;
+  padding-bottom: 90px;
+  perspective: 1200px;
+}
+
+/* The yellow block behind the image: width 690px starting at left: 0 */
+.about-yellow-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 690px;
+  height: 100%;
+  background: var(--yellow, #f4c03b);
+  z-index: 1;
+}
+
+/* The photo container: starts at left: 0, covers yellow and overhangs by 130px on the right */
+.about-image {
+  position: relative;
+  z-index: 2;
+  margin-left: 0;
+  width: 820px;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.about-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 488 / 460;
+  object-fit: cover;
+  box-shadow: 22px 28px 60px rgba(20, 30, 45, 0.14);
+}
+
+/* Right Column: Content */
+.about-content {
+  position: relative;
+  flex: 1;
+  max-width: 740px;
+  padding-top: 20px;
+}
+
+.about-header {
+  position: relative;
+  margin-bottom: 34px;
+}
+
+/* Watermark text: "ABOUT" placed at the top above the heading */
+.about-watermark {
+  position: absolute;
+  top: -20px;
+  left: -40px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 190px;
+  font-weight: 800;
+  line-height: 0.85;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(244, 192, 59, 0.16);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* Subtitle: "ABOUT OUR COMPANY" sitting across the watermark */
+.about-subtitle {
+  position: relative;
+  z-index: 2;
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #ebb02d;
+  margin: 0 0 24px 0;
+  padding-top: 60px;
+}
+
+/* Main title: "Always dedicated and devoted" */
+.about-title {
+  position: relative;
+  z-index: 2;
+  font-family: 'Poppins', sans-serif;
+  font-size: 68px;
+  font-weight: 800;
+  line-height: 1.12;
+  color: #111111;
+  margin: 0;
+  max-width: 720px;
+}
+
+/* Description paragraph */
+.about-desc {
+  font-family: 'Poppins', sans-serif;
+  font-size: 19px;
+  line-height: 1.9;
+  color: #777e8b;
+  max-width: 680px;
+  margin-bottom: 50px;
+}
+
+/* Check list: 2x2 grid */
+.about-features {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 60px;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 56px;
+  row-gap: 32px;
+  max-width: 680px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
-.intro-grid p {
-  margin-bottom: 26px;
+
+.about-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1b2432;
+  white-space: nowrap;
 }
-.check-list.dark-checks svg {
-  width: 24px;
-  height: 24px;
-  padding: 5px;
-  background: var(--navy);
+
+.about-feature-icon {
+  color: #f4c03b;
+  font-size: 26px;
+  flex-shrink: 0;
+}
+
+/* Three photo tiles section on About page */
+.about-tiles-section {
+  position: relative;
+  padding: 40px 0 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1600px) {
+  .about-inner {
+    max-width: 100%;
+    gap: 60px;
+    padding-right: 30px;
+  }
+  .about-image-col {
+    flex: 0 0 700px;
+    width: 700px;
+  }
+  .about-yellow-bg {
+    width: 580px;
+  }
+  .about-image {
+    width: 700px;
+  }
+  .about-watermark {
+    font-size: 160px;
+  }
+  .about-title {
+    font-size: 58px;
+  }
+  .about-desc {
+    font-size: 18px;
+  }
+  .about-feature-item {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 1300px) {
+  .about-inner {
+    gap: 45px;
+  }
+  .about-image-col {
+    flex: 0 0 580px;
+    width: 580px;
+    padding-top: 70px;
+    padding-bottom: 60px;
+  }
+  .about-yellow-bg {
+    width: 480px;
+  }
+  .about-image {
+    width: 580px;
+  }
+  .about-watermark {
+    font-size: 130px;
+  }
+  .about-title {
+    font-size: 48px;
+  }
+  .about-desc {
+    font-size: 16.5px;
+  }
+  .about-feature-item {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 992px) {
+  .about-inner {
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 20px;
+    gap: 40px;
+  }
+  .about-section.home-about {
+    padding-top: 140px;
+  }
+  .about-image-col {
+    flex: none;
+    width: 100%;
+    max-width: 620px;
+    padding-top: 60px;
+    padding-bottom: 50px;
+  }
+  .about-yellow-bg {
+    left: 0;
+    width: 82%;
+  }
+  .about-image {
+    width: 100%;
+  }
+  .about-content {
+    max-width: 620px;
+    margin: 0 auto;
+    padding-left: 0;
+  }
+  .about-watermark {
+    left: 0;
+    font-size: 100px;
+  }
+  .about-title {
+    font-size: 40px;
+  }
+  .about-features {
+    column-gap: 36px;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-features {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .about-watermark {
+    font-size: 70px;
+  }
+  .about-title {
+    font-size: 32px;
+  }
+  .about-desc {
+    font-size: 15px;
+  }
 }
 
 .tiles {
@@ -26,7 +293,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 8px;
-  margin-top: 70px;
+  margin-top: 50px;
   margin-bottom: -120px;
 }
 .tile {
@@ -111,6 +378,34 @@
   grid-template-columns: 47% 1fr;
   align-items: center;
   padding: 100px 0;
+}
+.skills-photo-wrap {
+  position: relative;
+  z-index: 0;
+  margin-bottom: 50px;
+  perspective: 1200px;
+}
+.skills-yellow-bg {
+  position: absolute;
+  left: 0;
+  bottom: -50px;
+  width: 85%;
+  height: 60%;
+  background: var(--yellow);
+  z-index: 1;
+}
+.skills-photo-card {
+  position: relative;
+  z-index: 2;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+.skills-photo-card img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  box-shadow: var(--shadow);
+  display: block;
 }
 .skills-photo {
   position: relative;
@@ -228,3 +523,5 @@
     grid-template-columns: 1fr;
   }
 }
+
+

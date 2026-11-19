@@ -1,37 +1,26 @@
 import { useState } from 'react';
-import { FaCheck, FaPlay } from 'react-icons/fa';
+import { FaPlay } from 'react-icons/fa';
 import PageTitle from '../components/PageTitle';
 import SectionTitle from '../components/SectionTitle';
+import AboutSection from '../sections/AboutSection';
 import CtaBanner from '../components/CtaBanner';
 import Testimonials from '../components/Testimonials';
 import VideoPopup from '../components/VideoPopup';
-import { aboutParagraph, aboutChecksLong, aboutTiles, stats, skills, VIDEO_ID } from '../data';
+import { aboutTiles, stats, skills, VIDEO_ID } from '../data';
+import { useTilt } from '../hooks/useTilt';
 import '../styles/About.css';
 
 function About() {
   const [videoOpen, setVideoOpen] = useState(false);
+  const videoTilt = useTilt(12);
 
   return (
     <>
-      <PageTitle title="About" />
+      {/* Main About Section exactly matching reference */}
+      <AboutSection />
 
-      {/* Intro text */}
-      <section className="about-intro">
-        <div className="container intro-grid">
-          <div className="fade">
-            <SectionTitle bigWord="About" small="About our company" title="It’s all about construction company" />
-          </div>
-          <div className="fade">
-            <p>{aboutParagraph}</p>
-            <ul className="check-list two-columns dark-checks">
-              {aboutChecksLong.map((item) => (
-                <li key={item}><FaCheck /> {item}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* Three yellow photo tiles. On hover the yellow fades and the photo shows */}
+      {/* Three yellow photo tiles. On hover the yellow fades and the photo shows */}
+      <section className="about-tiles-section">
         <div className="container tiles">
           {aboutTiles.map((tile) => (
             <div className="tile fade" key={tile.title}>
@@ -60,9 +49,18 @@ function About() {
 
       {/* Photo with play button + skill bars */}
       <section className="skills-section">
-        <div className="skills-photo fade">
-          <img src="/images/process.jpg" alt="Worker cutting metal" />
-          <button className="photo-play" onClick={() => setVideoOpen(true)} aria-label="Play video"><FaPlay /></button>
+        <div className="skills-photo-wrap fade">
+          <div className="skills-yellow-bg" />
+          <div
+            ref={videoTilt.ref}
+            style={videoTilt.style}
+            onMouseMove={videoTilt.onMouseMove}
+            onMouseLeave={videoTilt.onMouseLeave}
+            className="skills-photo-card"
+          >
+            <img src="/images/process.jpg" alt="Worker cutting metal" />
+            <button className="photo-play" onClick={() => setVideoOpen(true)} aria-label="Play video"><FaPlay /></button>
+          </div>
         </div>
         <div className="skills-content fade">
           <p>Slogan creation for your construction company is crucial for the overall branding. And branding in today’s world can’t be ignored.</p>

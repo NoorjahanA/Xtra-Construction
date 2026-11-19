@@ -15,7 +15,7 @@ function Home() {
     <>
       <Hero />
       <Features />
-      <AboutSection />
+      <AboutSection className="home-about" />
       <ServiceCards />
       <CtaBanner />
       <Process />

@@ -1,9 +1,6 @@
-import { Link } from 'react-router-dom';
 import PageTitle from '../components/PageTitle';
-import SectionTitle from '../components/SectionTitle';
+import ServiceCards from '../sections/ServiceCards';
 import FeatureCards from '../components/FeatureCards';
-import icons from '../components/icons';
-import { servicePageCards } from '../data';
 import '../styles/Services.css';
 
 function Services() {
@@ -11,24 +8,8 @@ function Services() {
     <>
       <PageTitle title="Services" />
 
-      <section className="services-page">
-        <div className="container">
-          <SectionTitle bigWord="Services" small="What we can do for you" title="Our construction services" center />
-          <div className="big-service-cards">
-            {servicePageCards.map((card) => {
-              const Icon = icons[card.icon];
-              return (
-                <div className="big-service fade" key={card.title}>
-                  <span className="icon-square"><Icon /></span>
-                  <h3>{card.title}</h3>
-                  <p>{card.text}</p>
-                  <Link to="/contact" className="btn btn-navy">Contact us</Link>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      {/* Main 3 Services Cards matching reference exactly */}
+      <ServiceCards />
 
       <section className="tips">
         <div className="container">

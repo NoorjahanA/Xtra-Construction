@@ -30,13 +30,24 @@ export const featureCards = [
 export const aboutChecks = ['Excellent engineering', 'Modern & up to date', 'Grade #1 materials', 'Structures with long life'];
 
 export const homeServices = [
-  { title: 'Building', icon: 'building', text: 'A building, or edifice, is a structure with a roof and walls standing.' },
+  {
+    title: 'Building',
+    icon: 'building',
+    image: '/images/s1.png',
+    text: 'A building, or edifice, is a structure with a roof and walls standing.',
+  },
   {
     title: 'Road Construction',
     icon: 'road',
+    image: '/images/s2.png',
     text: 'Road construction involves the use of asphalt, liquid asphalt, concrete, soil stabilization, rebar, paving and pavement recycling machines, and other road repair materials.',
   },
-  { title: 'Maintenance', icon: 'tools', text: 'All are assigned responsibilities relate to the maintenance mode.' },
+  {
+    title: 'Maintenance',
+    icon: 'tools',
+    image: '/images/s3.png',
+    text: 'All are assigned responsibilities relate to the maintenance mode.',
+  },
 ];
 
 export const processSteps = [
