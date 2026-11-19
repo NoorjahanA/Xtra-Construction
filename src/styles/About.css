@@ -1,0 +1,230 @@
+/* ===================================================
+   ABOUT PAGE STYLES
+   =================================================== */
+
+.about-intro {
+  padding: 90px 0 0;
+}
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 60px;
+}
+.intro-grid p {
+  margin-bottom: 26px;
+}
+.check-list.dark-checks svg {
+  width: 24px;
+  height: 24px;
+  padding: 5px;
+  background: var(--navy);
+}
+
+.tiles {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 70px;
+  margin-bottom: -120px;
+}
+.tile {
+  position: relative;
+  height: 340px;
+  overflow: hidden;
+}
+.tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.tile::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(244, 192, 59, 0.8);
+  transition: background 0.4s;
+}
+.tile:hover::after {
+  background: rgba(244, 192, 59, 0);
+}
+.tile-name,
+.tile-more {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 700;
+  transition: opacity 0.4s;
+}
+.tile-name {
+  color: var(--navy);
+}
+.tile-more {
+  color: #fff;
+  opacity: 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+.tile:hover .tile-name {
+  opacity: 0;
+}
+.tile:hover .tile-more {
+  opacity: 1;
+}
+
+.numbers {
+  padding: 190px 0 100px;
+  background: var(--navy);
+}
+.number-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.number-card {
+  padding-top: 30px;
+  background: #fff;
+  text-align: center;
+}
+.number-card strong {
+  display: block;
+  font-size: 52px;
+  font-weight: 300;
+  line-height: 1.2;
+  color: var(--navy);
+}
+.number-card span {
+  display: block;
+  margin-top: 18px;
+  padding: 10px;
+  background: var(--yellow);
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.skills-section {
+  display: grid;
+  grid-template-columns: 47% 1fr;
+  align-items: center;
+  padding: 100px 0;
+}
+.skills-photo {
+  position: relative;
+  z-index: 0;
+  margin-bottom: 50px;
+}
+.skills-photo::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  bottom: -50px;
+  width: 85%;
+  height: 60%;
+  background: var(--yellow);
+}
+.skills-photo img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  box-shadow: var(--shadow);
+}
+.photo-play {
+  position: absolute;
+  left: 50%;
+  top: 32%;
+  width: 90px;
+  height: 90px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  opacity: 0;
+}
+.photo-play:focus-visible {
+  opacity: 1;
+  outline: 3px solid var(--navy);
+  color: var(--navy);
+}
+.skills-content {
+  max-width: 700px;
+  padding: 0 max(20px, calc((100vw - 1240px) / 2)) 0 5%;
+}
+.skills-content > p {
+  margin-bottom: 30px;
+}
+.skill {
+  margin-bottom: 14px;
+  background: #f1f2f4;
+}
+.skill-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 0;
+  height: 36px;
+  padding-left: 12px;
+  overflow: hidden;
+  background: var(--navy);
+  color: #fff;
+  font-weight: 500;
+  font-size: 13px;
+  white-space: nowrap;
+  transition: width 1.3s 0.3s;
+}
+.skills-content.show .skill-bar {
+  width: var(--percent);
+}
+.skill-bar b {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 10px;
+  background: var(--yellow);
+  color: var(--navy);
+}
+
+/* ===== TABLET AND MOBILE ===== */
+@media (max-width: 1024px) {
+  .intro-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .tiles {
+    margin-bottom: -80px;
+  }
+  .numbers {
+    padding-top: 150px;
+  }
+  .number-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .skills-section {
+    grid-template-columns: 1fr;
+    gap: 70px;
+  }
+  .skills-photo {
+    width: 90%;
+  }
+  .skills-content {
+    padding: 0 20px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .intro-grid {
+    gap: 20px;
+  }
+  .tiles {
+    grid-template-columns: 1fr;
+  }
+  .tile {
+    height: 240px;
+  }
+  .number-cards {
+    grid-template-columns: 1fr;
+  }
+}

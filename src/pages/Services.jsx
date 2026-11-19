@@ -4,6 +4,7 @@ import SectionTitle from '../components/SectionTitle';
 import FeatureCards from '../components/FeatureCards';
 import icons from '../components/icons';
 import { servicePageCards } from '../data';
+import '../styles/Services.css';
 
 function Services() {
   return (

@@ -1,4 +1,7 @@
-/* ===== Colours and shared settings. Change a colour here and the whole site updates ===== */
+/* ===================================================
+   BASE GLOBAL STYLES & SHARED UTILITIES
+   =================================================== */
+
 :root {
   --yellow: #f4c03b;
   --navy: #243344;
@@ -8,7 +11,7 @@
   --shadow: 0 10px 40px rgba(36, 51, 68, 0.12);
 }
 
-/* ===== Reset: remove the browser's default spacing ===== */
+/* ===== Reset ===== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -33,7 +36,7 @@ ul { list-style: none; }
 button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
 h1, h2, h3 { color: var(--navy); line-height: 1.25; }
 
-/* Keeps content centred and not too wide */
+/* Center container */
 .container {
   width: calc(100% - 40px);
   max-width: 1240px;
@@ -59,45 +62,59 @@ h1, h2, h3 { color: var(--navy); line-height: 1.25; }
 .btn-white { background: #fff; border-color: #fff; color: var(--navy); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); }
 .btn-white:hover { background: var(--yellow); border-color: var(--yellow); }
 
-/* ===== Section title: small yellow label + big heading + huge faded word behind ===== */
-.section-title { position: relative; margin-bottom: 50px; }
+/* ===== Section Title: watermark + small label + title ===== */
+.section-title { position: relative; margin-bottom: 55px; }
 .section-title.center { text-align: center; }
 .big-word {
   position: absolute;
   left: 0;
-  top: -40px;
-  font-size: 110px;
+  top: -50px;
+  font-size: 130px;
   font-weight: 800;
   line-height: 1;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  color: rgba(244, 192, 59, 0.14);
+  color: rgba(244, 192, 59, 0.13);
   white-space: nowrap;
   pointer-events: none;
 }
 .section-title.center .big-word { left: 50%; transform: translateX(-50%); }
-.small-label { position: relative; color: var(--yellow); text-transform: uppercase; font-weight: 500; }
-.section-title h2 { position: relative; font-size: 38px; max-width: 620px; }
+.small-label { position: relative; color: var(--yellow); text-transform: uppercase; font-size: 13.5px; font-weight: 600; letter-spacing: 1.5px; margin-bottom: 10px; }
+.section-title h2 { position: relative; font-size: 42px; line-height: 1.22; max-width: 680px; }
 .section-title.center h2 { margin: 0 auto; }
 .section-title.light h2 { color: #fff; }
-.section-title.light .big-word { color: rgba(255, 255, 255, 0.06); }
+.section-title.light .big-word { color: rgba(255, 255, 255, 0.07); }
 
-/* ===== Animations ===== */
-/* Things with class "fade" start invisible. JavaScript adds "show" when they scroll into view. */
-.fade { opacity: 0; transform: translateY(30px); transition: opacity 0.7s, transform 0.7s; }
-.fade.show { opacity: 1; transform: none; }
+/* ===== Title bar on inner pages ===== */
+.page-title { padding: 18px 0 22px; background: var(--cream); }
+.page-title .container { display: flex; align-items: center; justify-content: space-between; }
+.page-title h1 { font-size: 15px; }
+.breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 12px; }
+.breadcrumb a { color: var(--navy); }
 
-/* The whole page fades in when you go to another page */
-.page { animation: pageIn 0.5s ease; }
-@keyframes pageIn { from { opacity: 0; } to { opacity: 1; } }
+/* ===== Placeholder page ===== */
+.placeholder-page { padding: 120px 0; text-align: center; }
+.placeholder-page h2 { margin-bottom: 12px; font-size: 38px; }
+.placeholder-page p { margin-bottom: 30px; }
 
-/* People who turn off animations on their device get no motion */
-@media (prefers-reduced-motion: reduce) {
-  * { animation: none !important; transition: none !important; }
-  .fade { opacity: 1; transform: none; }
-  html { scroll-behavior: auto; }
+/* ===== Scroll to top button ===== */
+.scroll-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 100;
+  width: 44px;
+  height: 44px;
+  background: var(--navy);
+  color: #fff;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
 }
+.scroll-top.show { opacity: 1; visibility: visible; }
+.scroll-top:hover { background: var(--yellow); color: var(--navy); }
 
-/* ===== Video popup ===== */
+/* ===== Video popup modal ===== */
 .video-popup {
   position: fixed;
   inset: 0;
@@ -111,3 +128,20 @@ h1, h2, h3 { color: var(--navy); line-height: 1.25; }
 .video-box { position: relative; width: 100%; max-width: 960px; aspect-ratio: 16 / 9; background: #000; }
 .video-box iframe { width: 100%; height: 100%; border: 0; }
 .video-close { position: absolute; top: -42px; right: 0; color: #fff; font-size: 24px; }
+
+/* ===== Animations ===== */
+.fade { opacity: 0; transform: translateY(30px); transition: opacity 0.7s, transform 0.7s; }
+.fade.show { opacity: 1; transform: none; }
+.page { animation: pageIn 0.5s ease; }
+@keyframes pageIn { from { opacity: 0; } to { opacity: 1; } }
+
+@media (max-width: 768px) {
+  .big-word { font-size: 60px; top: -22px; }
+  .section-title h2 { font-size: 28px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+  .fade { opacity: 1; transform: none; }
+  html { scroll-behavior: auto; }
+}

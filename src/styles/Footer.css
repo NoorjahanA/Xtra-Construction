@@ -1,0 +1,100 @@
+/* ===== Footer ===== */
+.footer {
+  background: #fff;
+  text-align: center;
+}
+
+/* The yellow strip sits half on white and half on the navy footer */
+.logo-strip-area {
+  background: linear-gradient(to bottom, #fff 50%, var(--navy) 50%);
+}
+.logo-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 20px;
+  padding: 34px 30px;
+  background: var(--yellow);
+}
+.logo-strip img {
+  width: auto;
+  height: auto;
+  max-height: 72px;
+  max-width: 17%;
+  object-fit: contain;
+  transition: transform 0.3s;
+}
+.logo-strip img:hover {
+  transform: scale(1.08);
+}
+
+.footer-dark {
+  padding: 50px 20px 70px;
+  background: var(--navy);
+  color: #c3cad6;
+}
+.footer-dark p {
+  margin: 26px 0;
+  line-height: 2;
+}
+.footer-logo {
+  width: 200px;
+  margin: 0 auto;
+}
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.footer-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background: var(--yellow);
+  color: var(--navy);
+  transition: 0.3s;
+}
+.footer-social a:hover {
+  background: #fff;
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 22px 0;
+  font-size: 13px;
+}
+.footer-links {
+  display: flex;
+}
+.footer-links a {
+  padding: 0 16px;
+  border-left: 1px solid #d5d8de;
+}
+.footer-links a:first-child {
+  border-left: 0;
+}
+.footer-links a:last-child {
+  padding-right: 0;
+}
+.footer-links a:hover {
+  color: var(--yellow);
+}
+
+@media (max-width: 768px) {
+  .logo-strip {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .logo-strip img {
+    max-width: 40%;
+  }
+  .footer-bottom {
+    justify-content: center;
+  }
+}

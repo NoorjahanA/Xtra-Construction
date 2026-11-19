@@ -1,0 +1,286 @@
+/* ===== Top dark bar ===== */
+.top {
+  position: relative;
+}
+.top-bar {
+  background: var(--navy);
+  color: #b7bfcc;
+  font-size: 12.5px;
+}
+.top-bar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 46px;
+  gap: 16px;
+}
+.top-bar p a {
+  color: #fff;
+  font-weight: 600;
+  margin-left: 12px;
+}
+.top-bar svg {
+  color: var(--yellow);
+  margin-right: 4px;
+}
+.social-links {
+  display: flex;
+  gap: 22px;
+}
+.social-links a {
+  color: #fff;
+}
+.top-bar a:hover {
+  color: var(--yellow);
+}
+
+/* ===== Header and menu ===== */
+.header {
+  position: relative;
+  z-index: 20;
+  background: var(--cream);
+}
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+}
+.logo img {
+  width: 210px;
+}
+
+/* On the home page the header floats on top of the hero image */
+.header.on-home {
+  position: absolute;
+  top: 46px;
+  left: 0;
+  right: 0;
+  background: transparent;
+}
+
+.menu-wrap {
+  margin-left: auto;
+  margin-right: 34px;
+}
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+}
+.menu li {
+  position: relative;
+}
+.menu a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 0;
+  color: var(--navy);
+}
+
+/* The yellow line under a menu item (shows on hover and on the page you are on) */
+.menu > li > a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  width: 0;
+  height: 3px;
+  background: var(--yellow);
+  transition: width 0.3s;
+}
+.menu > li > a:hover::after,
+.menu > li > a.active::after,
+.menu > li:hover > a::after {
+  width: 100%;
+}
+.small-icon {
+  font-size: 11px;
+}
+
+/* Dropdown (the dark box that opens under "Pages") */
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: -10px;
+  width: 200px;
+  padding: 8px;
+  background: var(--navy);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: 0.3s;
+}
+.has-dropdown:hover > .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+.dropdown a {
+  justify-content: space-between;
+  padding: 7px 12px;
+  font-size: 13px;
+  color: #fff;
+}
+.dropdown a:hover {
+  background: var(--yellow);
+  color: var(--navy);
+}
+.dropdown .dropdown {
+  top: 0;
+  left: 100%;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+.icon-button {
+  font-size: 18px;
+  color: var(--navy);
+  width: 40px;
+  height: 40px;
+}
+.icon-button:hover {
+  color: var(--yellow);
+}
+.menu-button {
+  display: none;
+}
+
+/* ===== Search box (full screen) ===== */
+.search-box {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 20px;
+  background: rgba(26, 36, 52, 0.97);
+  color: #b7bfcc;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+.search-box.open {
+  opacity: 1;
+  visibility: visible;
+}
+.search-close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: 26px;
+  color: #fff;
+}
+.search-box form {
+  display: flex;
+  width: 100%;
+  max-width: 700px;
+  border-bottom: 2px solid var(--yellow);
+}
+.search-box input {
+  flex: 1;
+  background: none;
+  border: 0;
+  color: #fff;
+  font-size: 30px;
+  padding: 10px 0;
+  outline: none;
+}
+.search-box form button {
+  color: var(--yellow);
+  font-size: 24px;
+}
+
+/* ===== Tablet and mobile: menu becomes a slide-in panel ===== */
+@media (max-width: 1024px) {
+  .menu-button {
+    display: block;
+    position: relative;
+    z-index: 60;
+  }
+  .consult-button {
+    display: none;
+  }
+  .header-right {
+    gap: 4px;
+  }
+
+  .menu-wrap {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 50;
+    width: 300px;
+    max-width: 85%;
+    margin: 0;
+    padding: 80px 28px 30px;
+    overflow-y: auto;
+    background: #fff;
+    transform: translateX(100%);
+    transition: transform 0.35s;
+  }
+  .menu-wrap.open {
+    transform: none;
+  }
+
+  .menu {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+  .menu a {
+    justify-content: space-between;
+    padding: 14px 0;
+    border-bottom: 1px solid #e6e8ec;
+  }
+  .menu > li > a::after {
+    display: none;
+  }
+
+  /* On mobile the dropdowns are lists inside the menu that open when tapped */
+  .dropdown {
+    position: static;
+    display: none;
+    width: auto;
+    padding: 0 0 0 16px;
+    background: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+  .has-dropdown.open > .dropdown {
+    display: block;
+  }
+  .dropdown .dropdown {
+    display: block;
+  }
+  .dropdown a {
+    color: var(--navy);
+  }
+  .has-dropdown:hover > .dropdown {
+    transform: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-bar .container {
+    flex-direction: column;
+    justify-content: center;
+    padding: 8px 0;
+    gap: 4px;
+  }
+  .header .container {
+    height: 80px;
+  }
+  .logo img {
+    width: 160px;
+  }
+}

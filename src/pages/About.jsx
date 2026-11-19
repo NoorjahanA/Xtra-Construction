@@ -6,6 +6,7 @@ import CtaBanner from '../components/CtaBanner';
 import Testimonials from '../components/Testimonials';
 import VideoPopup from '../components/VideoPopup';
 import { aboutParagraph, aboutChecksLong, aboutTiles, stats, skills, VIDEO_ID } from '../data';
+import '../styles/About.css';
 
 function About() {
   const [videoOpen, setVideoOpen] = useState(false);

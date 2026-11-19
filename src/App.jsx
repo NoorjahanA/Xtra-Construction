@@ -1,14 +1,35 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
+import { FaArrowUp } from 'react-icons/fa';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import ScrollTopButton from './components/ScrollTopButton';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
 import Faq from './pages/Faq';
 import Contact from './pages/Contact';
 import Placeholder from './pages/Placeholder';
+
+// Back to top floating button
+function ScrollTopButton() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const checkScroll = () => setVisible(window.scrollY > 400);
+    window.addEventListener('scroll', checkScroll);
+    return () => window.removeEventListener('scroll', checkScroll);
+  }, []);
+
+  return (
+    <button
+      className={visible ? 'scroll-top show' : 'scroll-top'}
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      aria-label="Back to top"
+    >
+      <FaArrowUp />
+    </button>
+  );
+}
 
 // Menu links that don't have a real page yet. [path, title]
 const placeholderPages = [

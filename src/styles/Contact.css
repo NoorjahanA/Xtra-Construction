@@ -1,0 +1,137 @@
+/* ===================================================
+   CONTACT PAGE STYLES
+   =================================================== */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 70px;
+  align-items: start;
+  padding: 80px 0;
+}
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+  color: var(--navy);
+}
+.icon-square.yellow {
+  position: static;
+  transform: none;
+  flex: none;
+  width: 46px;
+  height: 46px;
+  background: var(--yellow);
+  color: var(--navy);
+  font-size: 18px;
+}
+
+/* OpenStreetMap embed styled grayscale */
+.map {
+  display: block;
+  width: 100%;
+  height: 420px;
+  border: 0;
+  filter: grayscale(1) contrast(0.9);
+}
+
+/* Navy Form on Contact Page */
+.contact-form {
+  display: grid;
+  gap: 16px;
+  padding: 40px 42px;
+}
+.contact-form label {
+  display: grid;
+  gap: 6px;
+  font-size: 12px;
+}
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font: inherit;
+  font-size: 14px;
+  color: var(--navy);
+  background: #fff;
+  border: 2px solid transparent;
+}
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--navy);
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.error {
+  color: #c0392b;
+  font-size: 12px;
+}
+.form-button {
+  justify-self: end;
+}
+.form-button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+.form-message {
+  font-size: 13.5px;
+  text-align: right;
+}
+.form-message.good {
+  color: #1f7a3e;
+}
+.form-message.bad {
+  color: #c0392b;
+}
+
+.contact-form.navy {
+  background: var(--navy);
+}
+.contact-form.navy label {
+  color: #b7bfcc;
+}
+.contact-form.navy input,
+.contact-form.navy select,
+.contact-form.navy textarea {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+.contact-form.navy .error {
+  color: #ff9b8f;
+}
+.contact-form.navy .form-message.good {
+  color: #8ee0a8;
+}
+.contact-form.navy .form-button {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  color: var(--navy);
+}
+.contact-form.navy .form-button:hover {
+  background: #fff;
+  border-color: #fff;
+}
+
+/* ===== TABLET AND MOBILE ===== */
+@media (max-width: 1024px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-form {
+    padding: 28px 22px;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}

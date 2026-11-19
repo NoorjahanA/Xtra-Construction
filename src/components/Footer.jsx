@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { FaFacebookF, FaInstagram, FaYoutube } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
+import '../styles/Footer.css';
 
 function Footer() {
   const { pathname } = useLocation();
