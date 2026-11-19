@@ -7,7 +7,7 @@ import Process from '../sections/Process';
 import Projects from '../sections/Projects';
 import QuoteSection from '../sections/QuoteSection';
 import Testimonials from '../components/Testimonials';
-import '../styles/Home.css';
+import '../styles/home.css';
 
 // The home page is just the sections stacked one after another.
 function Home() {
