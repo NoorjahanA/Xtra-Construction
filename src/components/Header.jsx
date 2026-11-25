@@ -85,13 +85,27 @@ function Header() {
               </li>
 
               <li><NavLink to="/contact">Contact</NavLink></li>
+              <li className="mobile-menu-search">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setMenuOpen(false);
+                    setSearchOpen(true);
+                  }}
+                >
+                  Search <FaSearch className="small-icon" />
+                </button>
+              </li>
             </ul>
           </nav>
 
           <div className="header-right">
-            <button className="icon-button" onClick={() => setSearchOpen(true)} aria-label="Search">
+            <button className="icon-button search-trigger" onClick={() => setSearchOpen(true)} aria-label="Search">
               <FaSearch />
             </button>
+            <a href="tel:+18182345678" className="icon-button mobile-call-btn" aria-label="Call us">
+              <FaPhoneAlt />
+            </a>
             <Link to="/contact" className="btn btn-white consult-button">Free Consultation</Link>
             <button className="icon-button menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">
               {menuOpen ? <FaTimes /> : <FaBars />}

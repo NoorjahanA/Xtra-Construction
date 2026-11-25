@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import SectionTitle from '../components/SectionTitle';
 import { homeServices } from '../data';
+import '../styles/ServiceCards.css';
 
 function ServiceCards() {
   return (

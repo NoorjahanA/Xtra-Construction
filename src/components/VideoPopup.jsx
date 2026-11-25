@@ -1,6 +1,27 @@
 import { useEffect } from 'react';
 import { FaTimes } from 'react-icons/fa';
 
+/** Build a playable YouTube embed URL from either a full YouTube share link or a raw video ID. */
+function getYouTubeEmbedUrl(videoId) {
+  if (!videoId) return '';
+  try {
+    if (videoId.includes('youtu.be/') || videoId.includes('youtube.com/')) {
+      const url = new URL(videoId);
+      const id = videoId.includes('youtu.be/')
+        ? url.pathname.replace('/', '')
+        : url.searchParams.get('v') || url.pathname.split('/').pop();
+      const si = url.searchParams.get('si');
+      const params = new URLSearchParams();
+      if (si) params.set('si', si);
+      params.set('autoplay', '1');
+      return `https://www.youtube.com/embed/${id}?${params.toString()}`;
+    }
+  } catch {
+    // Fall back to treating the string as a plain YouTube video ID
+  }
+  return `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+}
+
 // A dark overlay with a YouTube video inside. Click outside or press Escape to close.
 function VideoPopup({ videoId, onClose }) {
   useEffect(() => {
@@ -18,7 +39,7 @@ function VideoPopup({ videoId, onClose }) {
           <FaTimes />
         </button>
         <iframe
-          src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
+          src={getYouTubeEmbedUrl(videoId)}
           title="Video"
           allow="autoplay; encrypted-media"
           allowFullScreen

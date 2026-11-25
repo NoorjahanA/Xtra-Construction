@@ -90,11 +90,23 @@
   .logo-strip {
     flex-wrap: wrap;
     justify-content: center;
+    padding: 24px 16px;
+    gap: 18px;
   }
   .logo-strip img {
-    max-width: 40%;
+    max-width: 42%;
+    max-height: 52px;
   }
   .footer-bottom {
     justify-content: center;
+    text-align: center;
+  }
+  .footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 0;
+  }
+  .footer-links a {
+    padding: 0 12px;
   }
 }

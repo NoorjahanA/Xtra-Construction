@@ -236,39 +236,48 @@
 
 @media (max-width: 600px) {
   .process-left {
-    padding: 60px 20px 40px;
+    padding: 60px 20px 50px;
   }
   .desc-break {
     display: none;
   }
   .process-watermark {
-    font-size: 95px;
-    top: -25px;
+    font-size: 85px;
+    top: -22px;
+    left: 0;
+  }
+  .process-title {
+    font-size: 34px;
+  }
+  .process-desc {
+    font-size: 15.5px;
+    margin-bottom: 30px;
   }
   .process-photo-wrap {
-    margin-left: 20px;
+    width: calc(100% - 18px);
+    margin-left: 18px;
   }
   .process-yellow-accent {
-    left: -20px;
-    bottom: -20px;
+    left: -18px;
+    bottom: -18px;
   }
   .process-right {
-    padding: 60px 20px 70px 60px;
-    gap: 38px;
+    padding: 55px 20px 65px 52px;
+    gap: 36px;
   }
   .step {
-    gap: 20px;
+    gap: 18px;
   }
   .step-number {
-    margin-left: -40px;
-    width: 75px;
-    height: 75px;
-    font-size: 28px;
+    margin-left: -38px;
+    width: 64px;
+    height: 64px;
+    font-size: 24px;
   }
   .step-content h3 {
-    font-size: 22px;
+    font-size: 21px;
   }
   .step-content p {
-    font-size: 15px;
+    font-size: 14.5px;
   }
 }

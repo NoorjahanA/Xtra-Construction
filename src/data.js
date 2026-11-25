@@ -1,8 +1,8 @@
 // All the text and lists for the website live in this one file.
 // To change any content, edit it here, no need to touch the components.
 
-// Put your own YouTube video id here (the part after "v=" in the video link)
-export const VIDEO_ID = 'aqz-KE-bpKQ';
+// Put your own YouTube video link or ID here
+export const VIDEO_ID = 'https://youtu.be/vkew-1KK3Sc?si=RmuJg9mJqyjkZMgA';
 
 export const heroSlides = [
   { lines: ['Start', 'New', 'Projects'], text: 'Don’t get framed by the competition, trust our solid reputation.' },

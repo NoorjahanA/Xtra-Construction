@@ -20,6 +20,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -27,6 +28,10 @@ body {
   font-size: 15px;
   line-height: 1.75;
   color: var(--grey-text);
+  overflow-x: hidden;
+}
+
+.page {
   overflow-x: hidden;
 }
 
@@ -136,8 +141,10 @@ h1, h2, h3 { color: var(--navy); line-height: 1.25; }
 @keyframes pageIn { from { opacity: 0; } to { opacity: 1; } }
 
 @media (max-width: 768px) {
+  .container { width: calc(100% - 32px); }
   .big-word { font-size: 60px; top: -22px; }
   .section-title h2 { font-size: 28px; }
+  .page-title .container { flex-wrap: wrap; gap: 8px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
